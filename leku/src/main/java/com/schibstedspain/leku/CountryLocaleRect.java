@@ -34,6 +34,10 @@ class CountryLocaleRect {
   private static final LatLng SPAIN_UPPER_RIGHT = new LatLng(43.906271, 5.394197);
   private static final String SPAIN_COUNTRY_CODE = "ES";
 
+  private static final LatLng IRELAND_LOWER_LEFT = new LatLng(51.413312, -10.5491537);
+  private static final LatLng IRELAND_UPPER_RIGHT = new LatLng(55.379475, -5.4624837);
+  private static final String IRELAND_COUNTRY_CODE = "IE";
+
   static LatLng getDefaultLowerLeft() {
     return getLowerLeftFromZone(Locale.getDefault());
   }
@@ -61,6 +65,8 @@ class CountryLocaleRect {
       return INDIA_LOWER_LEFT;
     } else if (SPAIN_COUNTRY_CODE.equals(locale.getCountry())) {
       return SPAIN_LOWER_LEFT;
+    } else if (IRELAND_COUNTRY_CODE.equals(locale.getCountry())) {
+      return IRELAND_LOWER_LEFT;
     }
     return null;
   }
@@ -84,6 +90,8 @@ class CountryLocaleRect {
       return INDIA_UPPER_RIGHT;
     } else if (SPAIN_COUNTRY_CODE.equals(locale.getCountry())) {
       return SPAIN_UPPER_RIGHT;
+    } else if (IRELAND_COUNTRY_CODE.equals(locale.getCountry())) {
+      return IRELAND_UPPER_RIGHT;
     }
     return null;
   }
