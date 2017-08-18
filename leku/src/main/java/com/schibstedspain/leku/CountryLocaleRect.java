@@ -65,7 +65,7 @@ class CountryLocaleRect {
       return INDIA_LOWER_LEFT;
     } else if (SPAIN_COUNTRY_CODE.equals(locale.getCountry())) {
       return SPAIN_LOWER_LEFT;
-    } else if (IRELAND_COUNTRY_CODE.equals(locale.getCountry())) {
+    } else if (locale.getLanguage() != null && locale.getLanguage().toUpperCase().contains(IRELAND_COUNTRY_CODE.toUpperCase())) {
       return IRELAND_LOWER_LEFT;
     }
     return null;
