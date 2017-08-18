@@ -20,6 +20,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
@@ -30,6 +31,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -44,20 +46,22 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.schibstedspain.leku.geocoder.GoogleGeocoderDataSource;
 import com.schibstedspain.leku.geocoder.AndroidGeocoderDataSource;
 import com.schibstedspain.leku.geocoder.GeocoderPresenter;
 import com.schibstedspain.leku.geocoder.GeocoderRepository;
 import com.schibstedspain.leku.geocoder.GeocoderViewInterface;
+import com.schibstedspain.leku.geocoder.GoogleGeocoderDataSource;
 import com.schibstedspain.leku.geocoder.api.AddressBuilder;
 import com.schibstedspain.leku.geocoder.api.NetworkClient;
 import com.schibstedspain.leku.permissions.PermissionUtils;
 import com.schibstedspain.leku.tracker.TrackEvents;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+
 import pl.charmas.android.reactivelocation.ReactiveLocationProvider;
 
 import static com.google.android.gms.maps.GoogleMap.MAP_TYPE_NORMAL;
@@ -146,6 +150,8 @@ public class LocationPickerActivity extends AppCompatActivity
     setUpFloatingButtons();
     buildGoogleApiClient();
     track(TrackEvents.didLoadLocationPicker);
+    // Adjust screen when keyboard is visible to allow completion while typing
+    getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
   }
 
   private void checkLocationPermission() {
