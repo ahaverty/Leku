@@ -90,7 +90,7 @@ class CountryLocaleRect {
       return INDIA_UPPER_RIGHT;
     } else if (SPAIN_COUNTRY_CODE.equals(locale.getCountry())) {
       return SPAIN_UPPER_RIGHT;
-    } else if (IRELAND_COUNTRY_CODE.equals(locale.getCountry())) {
+    } else if (locale.getLanguage() != null && locale.getLanguage().toUpperCase().contains(IRELAND_COUNTRY_CODE.toUpperCase())) {
       return IRELAND_UPPER_RIGHT;
     }
     return null;
