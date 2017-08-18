@@ -20,7 +20,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
@@ -150,8 +149,6 @@ public class LocationPickerActivity extends AppCompatActivity
     setUpFloatingButtons();
     buildGoogleApiClient();
     track(TrackEvents.didLoadLocationPicker);
-    // Adjust screen when keyboard is visible to allow completion while typing
-    getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
   }
 
   private void checkLocationPermission() {

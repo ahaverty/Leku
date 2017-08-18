@@ -48,7 +48,7 @@
     <activity
         android:name="com.schibstedspain.leku.LocationPickerActivity"
         android:label="@string/title_activity_location_picker"
-        android:windowSoftInputMode="adjustPan"
+        android:windowSoftInputMode="adjustPan|adjustResize"
         android:theme="@style/AppTheme.Map"
         >
       <intent-filter>
